@@ -3,12 +3,15 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Prime {
+    private static final int RANDOM_NUMBER_MIN = 1;
+    private static final int RANDOM_NUMBER_MAX = 100;
+
     public static void play() {
         var gameTask = "Answer 'yes' if given number is prime. Otherwise answer 'no'.";
         var gameData = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (var i = 0; i < Engine.NUM_OF_ROUNDS; i += 1) {
-            var number = getRandomNumber(1, 100);
+            var number = getRandomNumber(RANDOM_NUMBER_MIN, RANDOM_NUMBER_MAX);
             var question = Integer.toString(number);
             var rightAnswer = isPrimeNumber(number) ? "yes" : "no";
             gameData[i][0] = question;
