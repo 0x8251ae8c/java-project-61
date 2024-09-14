@@ -8,16 +8,24 @@ public class App {
 
         System.out.println("Please enter the game number and press Enter.");
         System.out.println("1 - Greet");
+        System.out.println("2 - Even");
         System.out.println("0 - Exit");
         System.out.print("Your choice: ");
         int userChoice = scanner.nextInt();
 
-        if (userChoice == 1) {
-            System.out.println();
-            System.out.println("Welcome to the Brain Games!");
-            System.out.print("May I have your name? ");
-            String userName = scanner.next();
-            System.out.println("Hello, " + userName + "!");
+        switch (userChoice) {
+            case 1:
+                System.out.println();
+                System.out.println("Welcome to the Brain Games!");
+                System.out.print("May I have your name? ");
+                String userName = scanner.next();
+                System.out.println("Hello, " + userName + "!");
+                break;
+            case 2:
+                Even.run();
+                break;
+            default:
+                break;
         }
     }
 }
