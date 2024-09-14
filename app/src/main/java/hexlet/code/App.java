@@ -19,11 +19,7 @@ public class App {
 
         switch (userChoice) {
             case 1:
-                System.out.println();
-                System.out.println("Welcome to the Brain Games!");
-                System.out.print("May I have your name? ");
-                String userName = scanner.next();
-                System.out.println("Hello, " + userName + "!");
+                Engine.greetUser();
                 break;
             case 2:
                 Even.run();
