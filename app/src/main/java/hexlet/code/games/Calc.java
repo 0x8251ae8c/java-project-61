@@ -3,7 +3,7 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    static String rules = "What is the result of the expression?";;
+    static String rules = "What is the result of the expression?";
 
     public static void run() {
         var gameData = new String[Engine.NUM_OF_ROUNDS][2];
