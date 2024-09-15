@@ -5,6 +5,10 @@ import java.util.Scanner;
 public class Engine {
     public static final int NUM_OF_ROUNDS = 3;
 
+    public static String[][] generateGameData() {
+        return new String[NUM_OF_ROUNDS][2];
+    }
+
     public static void runGame(String rules, String[][] gameData) {
         var scanner = new Scanner(System.in);
         var userName = greetUser();

@@ -3,31 +3,28 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Calc {
-    static String rules = "What is the result of the expression?";
+    static final String RULES = "What is the result of the expression?";
 
     public static void run() {
-        var gameData = new String[Engine.NUM_OF_ROUNDS][2];
+        var rounds = Engine.generateGameData();
 
-        for (var i = 0; i < Engine.NUM_OF_ROUNDS; i += 1) {
-            gameData[i] = generateRound();
+        for (var i = 0; i < rounds.length; i += 1) {
+            rounds[i] = generateRound();
         }
 
-        Engine.runGame(rules, gameData);
+        Engine.runGame(RULES, rounds);
     }
 
     private static String[] generateRound() {
         String[] operators = {"+", "-", "*"};
-        String[] round = new String[2];
 
         var operand1 = generateRandomNumber(0, 100);
         var operand2 = generateRandomNumber(0, 100);
         var operator = operators[generateRandomNumber(0, 3)];
-        var rightAnswer = calculateRightAnswer(operand1, operand2, operator);
+        var rightAnswer = "" + calculateRightAnswer(operand1, operand2, operator);
+        var question = "Question: " + operand1 + " " + operator + " " + operand2;
 
-        round[0] = "Question: " + operand1 + " " + operator + " " + operand2;
-        round[1] = "" + rightAnswer;
-
-        return round;
+        return new String[]{question, rightAnswer};
     }
 
     private static int generateRandomNumber(int lowerRangeLimit, int upperRangeLimit) {

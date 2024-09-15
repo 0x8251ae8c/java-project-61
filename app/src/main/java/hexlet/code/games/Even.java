@@ -3,28 +3,24 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 
 public class Even {
-    static String rules = "Answer 'yes' if the number is even, otherwise answer 'no'.";
+    static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void run() {
-        var gameData = new String[Engine.NUM_OF_ROUNDS][2];
+        var rounds = Engine.generateGameData();
 
-        for (var i = 0; i < Engine.NUM_OF_ROUNDS; i += 1) {
-            gameData[i] = generateRound();
+        for (var i = 0; i < rounds.length; i += 1) {
+            rounds[i] = generateRound();
         }
 
-        Engine.runGame(rules, gameData);
+        Engine.runGame(RULES, rounds);
     }
 
     private static String[] generateRound() {
-        String[] round = new String[2];
-
         var randomNumber = generateRandomNumber();
         var rightAnswer = isEven(randomNumber) ? "yes" : "no";
+        var question = "Question: " + randomNumber;
 
-        round[0] = "Question: " + randomNumber;
-        round[1] = rightAnswer;
-
-        return round;
+        return new String[]{question, rightAnswer};
     }
 
     private static int generateRandomNumber() {
