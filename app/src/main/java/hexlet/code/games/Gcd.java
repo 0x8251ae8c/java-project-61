@@ -18,17 +18,12 @@ public class Gcd {
     }
 
     private static String[] generateRound() {
-        var number1 = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        var number2 = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var number1 = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var number2 = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         var rightAnswer = "" + gcd(number1, number2);
         var question = "Question: " + number1 + " " + number2;
 
         return new String[]{question, rightAnswer};
-    }
-
-    private static int generateRandomNumber(int lowerRangeLimit, int upperRangeLimit) {
-        var diff = upperRangeLimit - lowerRangeLimit;
-        return (int) (lowerRangeLimit + Math.random() * diff);
     }
 
     private static int gcd(int number1, int number2) {

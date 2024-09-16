@@ -6,8 +6,8 @@ import java.util.StringJoiner;
 public class Progression {
     static final String RULES = "What number is missing in the progression?";
     static final int PROGRESSION_SIZE = 10;
-    static final int MIN_PROGRESSION_START_NUMBER = 0;
-    static final int MAX_PROGRESSION_START_NUMBER = 100;
+    static final int MIN_START_NUMBER = 0;
+    static final int MAX_START_NUMBER = 100;
     static final int MIN_STEP_VALUE = 1;
     static final int MAX_STEP_VALUE = 10;
 
@@ -22,19 +22,14 @@ public class Progression {
     }
 
     private static String[] generateRound() {
-        var progressionStartNumber = generateRandomNumber(MIN_PROGRESSION_START_NUMBER, MAX_PROGRESSION_START_NUMBER);
-        var progressionStep = generateRandomNumber(MIN_STEP_VALUE, MAX_STEP_VALUE);
+        var progressionStartNumber = Engine.generateRandomNumber(MIN_START_NUMBER, MAX_START_NUMBER);
+        var progressionStep = Engine.generateRandomNumber(MIN_STEP_VALUE, MAX_STEP_VALUE);
         var progression = generateProgression(progressionStartNumber, progressionStep);
-        var hiddenValueIndex = generateRandomNumber(0, PROGRESSION_SIZE - 1);
+        var hiddenValueIndex = Engine.generateRandomNumber(0, PROGRESSION_SIZE - 1);
         var question = generateQuestion(progression, hiddenValueIndex);
         var rightAnswer = "" + progression[hiddenValueIndex];
 
         return new String[]{question, rightAnswer};
-    }
-
-    private static int generateRandomNumber(int lowerRangeLimit, int upperRangeLimit) {
-        var diff = upperRangeLimit - lowerRangeLimit;
-        return (int) (lowerRangeLimit + Math.random() * diff);
     }
 
     private static int[] generateProgression(int first, int step) {

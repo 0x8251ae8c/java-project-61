@@ -18,16 +18,11 @@ public class Prime {
     }
 
     private static String[] generateRound() {
-        var number = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var number = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         var question = "Question: " + number;
         var rightAnswer = isPrime(number) ? "yes" : "no";
 
         return new String[]{question, rightAnswer};
-    }
-
-    private static int generateRandomNumber(int lowerRangeLimit, int upperRangeLimit) {
-        var diff = upperRangeLimit - lowerRangeLimit;
-        return (int) (lowerRangeLimit + Math.random() * diff);
     }
 
     private static boolean isPrime(int number) {

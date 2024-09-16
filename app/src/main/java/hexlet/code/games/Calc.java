@@ -20,18 +20,13 @@ public class Calc {
     private static String[] generateRound() {
         String[] operators = {"+", "-", "*"};
 
-        var operand1 = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        var operand2 = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        var operator = operators[generateRandomNumber(0, operators.length)];
+        var operand1 = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var operand2 = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var operator = operators[Engine.generateRandomNumber(0, operators.length)];
         var rightAnswer = "" + calculateRightAnswer(operand1, operand2, operator);
         var question = "Question: " + operand1 + " " + operator + " " + operand2;
 
         return new String[]{question, rightAnswer};
-    }
-
-    private static int generateRandomNumber(int lowerRangeLimit, int upperRangeLimit) {
-        var diff = upperRangeLimit - lowerRangeLimit;
-        return (int) (lowerRangeLimit + Math.random() * diff);
     }
 
     private static int calculateRightAnswer(int operand1, int operand2, String operator) {
