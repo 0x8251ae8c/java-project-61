@@ -39,7 +39,7 @@ public class Calc {
             case "+" -> operand1 + operand2;
             case "-" -> operand1 - operand2;
             case "*" -> operand1 * operand2;
-            default -> throw new RuntimeException("Unknown operand");
+            default -> throw new RuntimeException("Unknown operator");
         };
     }
 }
