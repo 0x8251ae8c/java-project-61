@@ -6,6 +6,10 @@ import java.util.StringJoiner;
 public class Progression {
     static final String RULES = "What number is missing in the progression?";
     static final int PROGRESSION_SIZE = 10;
+    static final int MIN_PROGRESSION_START_NUMBER = 0;
+    static final int MAX_PROGRESSION_START_NUMBER = 100;
+    static final int MIN_STEP_VALUE = 1;
+    static final int MAX_STEP_VALUE = 10;
 
     public static void run() {
         var rounds = Engine.generateGameData();
@@ -18,8 +22,8 @@ public class Progression {
     }
 
     private static String[] generateRound() {
-        var progressionStartNumber = generateRandomNumber(0, 100);
-        var progressionStep = generateRandomNumber(1, 10);
+        var progressionStartNumber = generateRandomNumber(MIN_PROGRESSION_START_NUMBER, MAX_PROGRESSION_START_NUMBER);
+        var progressionStep = generateRandomNumber(MIN_STEP_VALUE, MAX_STEP_VALUE);
         var progression = generateProgression(progressionStartNumber, progressionStep);
         var hiddenValueIndex = generateRandomNumber(0, PROGRESSION_SIZE - 1);
         var question = generateQuestion(progression, hiddenValueIndex);

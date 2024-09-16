@@ -4,6 +4,8 @@ import hexlet.code.Engine;
 
 public class Gcd {
     static final String RULES = "Find the greatest common divisor of given numbers.";
+    static final int MIN_RANDOM_NUMBER = 1;
+    static final int MAX_RANDOM_NUMBER = 100;
 
     public static void run() {
         var rounds = Engine.generateGameData();
@@ -16,8 +18,8 @@ public class Gcd {
     }
 
     private static String[] generateRound() {
-        var number1 = generateRandomNumber(1, 100);
-        var number2 = generateRandomNumber(1, 100);
+        var number1 = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var number2 = generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
         var rightAnswer = "" + gcd(number1, number2);
         var question = "Question: " + number1 + " " + number2;
 
