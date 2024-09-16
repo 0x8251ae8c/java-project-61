@@ -31,26 +31,14 @@ public class App {
         int userChoice = scanner.nextInt();
 
         switch (userChoice) {
-            case GREET:
-                Engine.greetUser();
-                break;
-            case EVEN:
-                Even.run();
-                break;
-            case CALC:
-                Calc.run();
-                break;
-            case GCD:
-                Gcd.run();
-                break;
-            case PROGRESSION:
-                Progression.run();
-                break;
-            case PRIME:
-                Prime.run();
-                break;
-            default:
-                break;
+            case GREET -> Engine.greetUser();
+            case EVEN -> Even.run();
+            case CALC -> Calc.run();
+            case GCD -> Gcd.run();
+            case PROGRESSION -> Progression.run();
+            case PRIME -> Prime.run();
+            default -> {
+            }
         }
     }
 }
