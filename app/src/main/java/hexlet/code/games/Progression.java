@@ -3,8 +3,6 @@ package hexlet.code.games;
 import hexlet.code.Engine;
 import hexlet.code.Utils;
 
-import java.util.StringJoiner;
-
 public class Progression {
     static final String RULES = "What number is missing in the progression?";
     static final int PROGRESSION_SIZE = 10;
@@ -24,29 +22,26 @@ public class Progression {
     private static String[] generateRound() {
         var progressionStartNumber = Utils.generateRandomNumber();
         var progressionStep = Utils.generateRandomNumber(MIN_STEP_VALUE, MAX_STEP_VALUE);
-        var progression = generateProgression(progressionStartNumber, progressionStep);
+        var progression = generateProgression(progressionStartNumber, progressionStep, PROGRESSION_SIZE);
         var hiddenValueIndex = Utils.generateRandomNumber(0, PROGRESSION_SIZE - 1);
         var question = generateQuestion(progression, hiddenValueIndex);
-        var rightAnswer = "" + progression[hiddenValueIndex];
+        var rightAnswer = progression[hiddenValueIndex];
 
         return new String[]{question, rightAnswer};
     }
 
-    private static int[] generateProgression(int first, int step) {
-        var numbers = new int[PROGRESSION_SIZE];
-        numbers[0] = first;
-        for (var i = 1; i < PROGRESSION_SIZE; i += 1) {
-            numbers[i] = numbers[i - 1] + step;
+    private static String[] generateProgression(int first, int step, int size) {
+        var progression = new String[size];
+
+        for (var i = 0; i < size; i += 1) {
+            progression[i] = Integer.toString(first + step * i);
         }
-        return numbers;
+        return progression;
     }
 
-    private static String generateQuestion(int[] progression, int hiddenValueIndex) {
-        var sj = new StringJoiner(" ");
-        for (var i = 0; i < progression.length; i += 1) {
-            var item = (i == hiddenValueIndex) ? ".." : Integer.toString(progression[i]);
-            sj.add(item);
-        }
-        return sj.toString();
+    private static String generateQuestion(String[] progression, int hiddenValueIndex) {
+        var items = progression.clone();
+        items[hiddenValueIndex] = "..";
+        return String.join(" ", items);
     }
 }
