@@ -19,7 +19,7 @@ public class Even {
     private static String[] generateRound() {
         var randomNumber = Utils.generateRandomNumber();
         var rightAnswer = isEven(randomNumber) ? "yes" : "no";
-        var question = "Question: " + randomNumber;
+        var question = "" + randomNumber;
 
         return new String[]{question, rightAnswer};
     }

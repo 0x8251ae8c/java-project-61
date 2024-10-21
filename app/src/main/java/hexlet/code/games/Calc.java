@@ -23,7 +23,7 @@ public class Calc {
         var operand2 = Utils.generateRandomNumber();
         var operator = operators[Utils.generateRandomNumber(0, operators.length)];
         var rightAnswer = "" + calculateRightAnswer(operand1, operand2, operator);
-        var question = "Question: " + operand1 + " " + operator + " " + operand2;
+        var question = operand1 + " " + operator + " " + operand2;
 
         return new String[]{question, rightAnswer};
     }

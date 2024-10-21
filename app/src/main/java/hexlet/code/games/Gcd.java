@@ -20,7 +20,7 @@ public class Gcd {
         var number1 = Utils.generateRandomNumber() + 1;
         var number2 = Utils.generateRandomNumber() + 1;
         var rightAnswer = "" + gcd(number1, number2);
-        var question = "Question: " + number1 + " " + number2;
+        var question = number1 + " " + number2;
 
         return new String[]{question, rightAnswer};
     }
