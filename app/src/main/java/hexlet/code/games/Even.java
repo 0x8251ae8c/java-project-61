@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Even {
     static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
-    static final int MIN_RANDOM_NUMBER = 1;
-    static final int MAX_RANDOM_NUMBER = 100;
 
     public static void run() {
         var rounds = Engine.generateGameData();
@@ -18,7 +17,7 @@ public class Even {
     }
 
     private static String[] generateRound() {
-        var randomNumber = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
+        var randomNumber = Utils.generateRandomNumber();
         var rightAnswer = isEven(randomNumber) ? "yes" : "no";
         var question = "Question: " + randomNumber;
 

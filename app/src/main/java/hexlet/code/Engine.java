@@ -9,11 +9,6 @@ public class Engine {
         return new String[NUM_OF_ROUNDS][2];
     }
 
-    public static int generateRandomNumber(int lowerRangeLimit, int upperRangeLimit) {
-        var diff = upperRangeLimit - lowerRangeLimit;
-        return (int) (lowerRangeLimit + Math.random() * diff);
-    }
-
     public static void runGame(String rules, String[][] gameData) {
         var scanner = new Scanner(System.in);
         var userName = greetUser();

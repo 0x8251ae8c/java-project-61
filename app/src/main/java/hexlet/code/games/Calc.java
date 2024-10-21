@@ -1,11 +1,10 @@
 package hexlet.code.games;
 
 import hexlet.code.Engine;
+import hexlet.code.Utils;
 
 public class Calc {
     static final String RULES = "What is the result of the expression?";
-    static final int MIN_RANDOM_NUMBER = 0;
-    static final int MAX_RANDOM_NUMBER = 100;
 
     public static void run() {
         var rounds = Engine.generateGameData();
@@ -20,9 +19,9 @@ public class Calc {
     private static String[] generateRound() {
         String[] operators = {"+", "-", "*"};
 
-        var operand1 = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        var operand2 = Engine.generateRandomNumber(MIN_RANDOM_NUMBER, MAX_RANDOM_NUMBER);
-        var operator = operators[Engine.generateRandomNumber(0, operators.length)];
+        var operand1 = Utils.generateRandomNumber();
+        var operand2 = Utils.generateRandomNumber();
+        var operator = operators[Utils.generateRandomNumber(0, operators.length)];
         var rightAnswer = "" + calculateRightAnswer(operand1, operand2, operator);
         var question = "Question: " + operand1 + " " + operator + " " + operand2;
 
