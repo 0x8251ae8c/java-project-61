@@ -31,7 +31,7 @@ public class App {
         int userChoice = scanner.nextInt();
 
         switch (userChoice) {
-            case GREET -> Engine.greetUser();
+            case GREET -> Engine.greetUser(scanner);
             case EVEN -> Even.run();
             case CALC -> Calc.run();
             case GCD -> Gcd.run();

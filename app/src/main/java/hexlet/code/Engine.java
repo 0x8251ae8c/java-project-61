@@ -7,7 +7,7 @@ public class Engine {
 
     public static void runGame(String rules, String[][] gameData) {
         var scanner = new Scanner(System.in);
-        var userName = greetUser();
+        var userName = greetUser(scanner);
 
         System.out.println(rules);
 
@@ -28,9 +28,7 @@ public class Engine {
         System.out.println("Congratulations, " + userName + "!");
     }
 
-    static String greetUser() {
-        var scanner = new Scanner(System.in);
-
+    static String greetUser(Scanner scanner) {
         System.out.println();
         System.out.println("Welcome to the Brain Games!");
         System.out.print("May I have your name? ");
