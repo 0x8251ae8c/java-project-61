@@ -7,7 +7,7 @@ public class Calc {
     static final String RULES = "What is the result of the expression?";
 
     public static void run() {
-        var rounds = Engine.generateGameData();
+        var rounds = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (var i = 0; i < rounds.length; i += 1) {
             rounds[i] = generateRound();

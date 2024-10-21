@@ -7,7 +7,7 @@ public class Even {
     static final String RULES = "Answer 'yes' if the number is even, otherwise answer 'no'.";
 
     public static void run() {
-        var rounds = Engine.generateGameData();
+        var rounds = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (var i = 0; i < rounds.length; i += 1) {
             rounds[i] = generateRound();

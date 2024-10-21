@@ -7,7 +7,7 @@ public class Gcd {
     static final String RULES = "Find the greatest common divisor of given numbers.";
 
     public static void run() {
-        var rounds = Engine.generateGameData();
+        var rounds = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (var i = 0; i < rounds.length; i += 1) {
             rounds[i] = generateRound();

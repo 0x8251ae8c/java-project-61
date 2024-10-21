@@ -12,7 +12,7 @@ public class Progression {
     static final int MAX_STEP_VALUE = 10;
 
     public static void run() {
-        var rounds = Engine.generateGameData();
+        var rounds = new String[Engine.NUM_OF_ROUNDS][2];
 
         for (var i = 0; i < rounds.length; i += 1) {
             rounds[i] = generateRound();
