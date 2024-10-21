@@ -5,6 +5,7 @@ import hexlet.code.Utils;
 
 public class Calc {
     static final String RULES = "What is the result of the expression?";
+    static final String[] OPERATORS = {"+", "-", "*"};
 
     public static void run() {
         var rounds = new String[Engine.NUM_OF_ROUNDS][2];
@@ -17,11 +18,9 @@ public class Calc {
     }
 
     private static String[] generateRound() {
-        String[] operators = {"+", "-", "*"};
-
         var operand1 = Utils.generateRandomNumber();
         var operand2 = Utils.generateRandomNumber();
-        var operator = operators[Utils.generateRandomNumber(0, operators.length)];
+        var operator = OPERATORS[Utils.generateRandomNumber(0, OPERATORS.length)];
         var rightAnswer = "" + calculateRightAnswer(operand1, operand2, operator);
         var question = operand1 + " " + operator + " " + operand2;
 
